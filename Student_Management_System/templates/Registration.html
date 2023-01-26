@@ -1,0 +1,55 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link href="{% static 'css/registration.css' %}" rel="stylesheet">
+    <title>Registration Form</title>
+
+    <style>
+        .form{
+             font-family: Georgia, serif;
+             color : yellow;
+             margin : 10px;
+             padding : 10px;
+        }
+        td, table {
+             margin : 150px;
+             padding : 10px;
+             border: 2px solid blue;
+             border-radius : 12px;
+             background-color : MediumSeaGreen;
+        }
+
+    </style>
+</head>
+
+<body>
+
+<div class="form"> <h2 align="left"> Registration Form </h2> </div>
+
+<form action="regdata" method="post">
+    {% csrf_token %}
+    <h3 style="color : red"> {{ data }} </h3>
+
+    <table align="center">
+    <tr>
+        <td align="center"> User Name: </td>
+        <td> <input type="text" name="txtUserName"> </td>
+    </tr>
+    <tr>
+        <td align="center"> User Email: </td>
+        <td> <input type="email" name="txtEmail"> </td>
+    </tr>
+    <tr>
+        <td align="center"> User Password: </td>
+        <td> <input type="password" name="txtPswd"> </td>
+    </tr>
+    <tr>
+        <td align="center"> Register: </td>
+        <td align="center"> <input type="submit" name="btnSub" value="Register here"> </td>
+    </tr>
+</table>
+</form>
+</body>
+</html>

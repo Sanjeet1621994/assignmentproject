@@ -1,0 +1,76 @@
+{% extends 'navbar.html' %}
+{% block content %}
+{% load static %}
+
+<link href="{% static 'css/update.css' %}" rel="stylesheet">
+<style>
+    body {
+            margin : 27px;
+            padding : 92px;
+        }
+    .navbar-brand{
+             color : SlateBlue;
+        }
+    .first {
+            font-family: Georgia, serif;
+            color : MediumSeaGreen;
+            margin : 8px;
+            padding : 7px;
+    }
+    td, table {
+            margin : 9px;
+            padding : 3px;
+            border: 3px solid blue;
+        }
+    .second {
+            background-color : LightGray;
+    }
+
+</style>
+
+<div class="first"> <h2 align="right"> Update your information </h2> </div>
+
+<form method="post">
+    {% csrf_token %}
+    <table align="right">
+        <tr align="center" class="second">
+            <td> Name: </td>
+            <td> <input type="text" name="txtName" value="{{ data.Stud_Name }}"> </td>
+        </tr>
+        <tr align="center" class="second">
+            <td> Age: </td>
+            <td> <input type="number" name="txtAge" value="{{ data.Stud_Age }}"> </td>
+        </tr>
+        <tr align="center" class="second">
+            <td> Phone Number: </td>
+            <td> <input type="number" name="txtPhno" value="{{ data.Stud_Phno }}"> </td>
+        </tr>
+        <tr align="center" class="second">
+            <td> City: </td>
+            <td>
+                <select name="ddlCity">
+                    <option selected> {{ data.Stud_City }} </option>
+                    {% for i in City_Data %}
+                        <option> {{ i.City_Name }} </option>
+                    {% endfor %}
+                </select>
+            </td>
+        </tr>
+        <tr align="center" class="second">
+            <td> Course: </td>
+            <td>
+                <select name="ddlCourse">
+                    <option selected> {{ data.Stud_Course }} </option>
+                    {% for i in Course_Data %}
+                        <option> {{ i.Course_Name }} </option>
+                    {% endfor %}
+                </select>
+            </td>
+        </tr>
+        <tr align="center" class="second">
+            <td> Add Student </td>
+            <td> <input type="submit" name="btnSub" value="Add here"> </td>
+        </tr>
+    </table>
+</form>
+{% endblock %}

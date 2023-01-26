@@ -1,0 +1,51 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title> Login </title>
+    <link href="{% static 'css/login.css' %}" rel="stylesheet">
+    <style>
+        body{
+              margin: 50px;
+              padding: 100px;
+              font-family: Georgia, serif;
+              }
+        td,table{
+                  border: 1px solid white;
+                  border-radius : 4px;
+                  background-color : skyblue;
+                 }
+        table{
+              border: 2px solid black;
+              width : 23%;
+              }
+    </style>
+
+</head>
+<body>
+
+<h2 align="left"> <b> Login to Your Account </b> </h2>
+
+<form action="logdata" method="post">
+    {% csrf_token %}
+
+    <h3 style="color:red" align="left"> {{ data }} </h3>
+
+    <table align="left">
+            <tr>
+                <td> UserName: </td>
+                <td align="center"> <input type="text" name="txtUserName"> </td>
+            </tr>
+            <tr>
+                <td> UserPassword: </td>
+                <td align="center"> <input type="password" name="txtPswd"> </td>
+            </tr>
+            <tr>
+                <td align="center"> <input type="submit" name="btnSub" value="Login"> </td>
+                <td align="center"> <a href="{% url 'reg' %}">SignUP </a> </td>
+            </tr>
+    </table>
+</form>
+</body>
+</html>

@@ -1,0 +1,59 @@
+{% extends 'navbar.html' %}
+{% block content %}
+{% load static %}
+
+<link href="{% static 'css/details.css' %}" rel="stylesheet">
+<style>
+        body {
+            margin : 27px;
+            padding : 92px;
+        }
+        .first{
+             font-family: Georgia, serif;
+             color : skyblue;
+             margin : 10px;
+             padding : 10px;
+        }
+        .navbar-brand{
+             color : blue;
+        }
+        td, table {
+             margin : 18px;
+             padding : 12px;
+             border: 2px solid blue;
+        }
+        .text{
+             background-color : grey;
+        }
+        .text1{
+             background-color : white;
+        }
+</style>
+
+<div class="first"> <h2 align="right"> Student Details </h2> </div>
+
+<table align="right">
+    <tr align="center" class="text">
+        <td>  <b> ID </b> </td>
+        <td> <b> Name </b> </td>
+        <td> <b> Age </b> </td>
+        <td> <b> Phone_No </b> </td>
+        <td> <b> City </b> </td>
+        <td> <b> Course </b> </td>
+        <td> <b> Update </b> </td>
+        <td> <b> Delete </b> </td>
+    </tr>
+    {% for i in data %}
+    <tr align="center" class="text1">
+        <td> {{ i.id }} </td>
+        <td> {{ i.Stud_Name }} </td>
+        <td> {{ i.Stud_Age }} </td>
+        <td> {{ i.Stud_Phno }} </td>
+        <td> {{ i.Stud_City }} </td>
+        <td> {{ i.Stud_Course }} </td>
+        <td> <a href="{% url 'up' i.id %}"> Update </a> </td>
+        <td> <a href="{% url 'del' i.id %}"> Delete </a> </td>
+    </tr>
+    {% endfor %}
+</table>
+{% endblock %}

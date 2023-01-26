@@ -1,0 +1,73 @@
+{% extends 'navbar.html' %}
+{% block content %}
+{% load static %}
+
+<link href="{% static 'css/sdata.css' %}" rel="stylesheet">
+<style>
+        body{
+            color : skyblue;
+            margin : 27px;
+            padding : 92px;
+        }
+        .nav-item {
+            margin : 0px;
+            padding : 2px;
+        }
+        .navbar-brand{
+            color : red;
+            margin : 1px;
+            padding : 10px;
+            }
+        td,table {
+             border: 2px solid blue;
+             background-color : orange;
+            }
+        .text {
+              font-family: Georgia, serif;
+              color : black;
+        }
+    </style>
+<h2 align="center"> Please enter below information </h2>
+<form action="readdata" method="post">
+    {% csrf_token %}
+    <table align="center">
+        <tr align="center">
+            <td class="text"> Name: </td>
+            <td> <input type="text" name="txtName"> </td>
+        </tr>
+        <tr align="center">
+            <td class="text"> Age: </td>
+            <td> <input type="number" name="txtAge"> </td>
+        </tr>
+        <tr align="center">
+            <td class="text"> Phone Number: </td>
+            <td> <input type="number" name="txtPhno"> </td>
+        </tr>
+        <tr align="center">
+            <td class="text"> City: </td>
+            <td>
+                <select name="ddlCity">
+                    {% for i in City_Data %}
+                        <option> {{ i.City_Name }} </option>
+                    {% endfor %}
+                </select>
+            </td>
+        </tr>
+        <tr align="center">
+            <td class="text"> Course: </td>
+            <td>
+                <select name="ddlCourse">
+                    {% for i in Course_Data %}
+                        <option> {{ i.Course_Name }} </option>
+                    {% endfor %}
+                </select>
+            </td>
+        </tr>
+        <tr align="center">
+            <td> <input type="submit" name="btnSub" value="Add Student"> </td>
+        </tr>
+
+    </table>
+</form>
+{% endblock %}
+
