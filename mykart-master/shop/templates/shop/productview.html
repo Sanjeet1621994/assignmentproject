@@ -1,0 +1,33 @@
+{% include 'shop/basic.html' %}
+{% block title %}
+<title>{{product.product_name}}</title>
+{% endblock %}
+{% block body %}
+<div class="container my-4">
+    <div class="row">
+        <div class="col-md-4">
+            <div class="row">
+                <img src="/media/{{product.image}}" width="350px" height="345px">
+            </div>
+            <div class="row">
+                <a class="btn btn-success" href="">Add to cart</a>
+                <a class="btn btn-primary mx-4" href="">Buy Now</a>
+            </div>
+
+        </div>
+        <div class="col-md-8">
+            <div class="row">
+                <h3>{{product.product_name}}</h3>
+
+            </div>
+            <div class="row">
+                 <h5><b>Rs.{{product.price}}</b></h5>
+            </div>
+                 <div class="row">
+                 <h5>{{product.product_desc}}</h5>
+            </div>
+
+        </div>
+    </div>
+</div>
+{% endblock %}

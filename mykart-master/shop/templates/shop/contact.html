@@ -1,0 +1,30 @@
+{% include 'shop/basic.html' %}
+{% block title %}
+<title>contact Page</title>
+{% endblock %}
+{% block body %}
+<div class="container my-4">
+    <h1>{{msg}}</h1>
+    <form method="post" action="/shop/contact">
+        {% csrf_token %}
+    <h2>Contact Us</h2>
+    <div class="mb-3">
+        <label for="txtname" class="form-label">Name</label>
+        <input type="text" class="form-control" id="txtname" name="txtname" placeholder="First-Name Last-Name">
+    </div>
+    <div class="mb-3">
+        <label for="txtphone" class="form-label">Phone</label>
+        <input type="tel" class="form-control" id="txtphone" name="txtphone" placeholder="+91-xxxxxxxxxx">
+    </div>
+    <div class="mb-3">
+        <label for="exampleFormControlInput1" class="form-label">Email address</label>
+        <input type="email" class="form-control" name="txtemail" id="exampleFormControlInput1" placeholder="Sample@example.com">
+    </div>
+    <div class="mb-3">
+        <label for="exampleFormControlTextarea1" class="form-label">Submit Your Query Here</label>
+        <textarea class="form-control" name="txtquery" id="exampleFormControlTextarea1" rows="3"></textarea>
+    </div>
+    <button type="submit" name="btnsubmit" class="btn btn-success">Submit</button>
+    </form>
+</div>
+{% endblock %}
